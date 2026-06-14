@@ -14,16 +14,269 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      careers: {
+        Row: {
+          area: string | null
+          created_at: string
+          demanda_laboral: string | null
+          descripcion: string | null
+          duracion: string | null
+          habilidades: string[] | null
+          id: string
+          nombre: string
+          salario_promedio: string | null
+        }
+        Insert: {
+          area?: string | null
+          created_at?: string
+          demanda_laboral?: string | null
+          descripcion?: string | null
+          duracion?: string | null
+          habilidades?: string[] | null
+          id?: string
+          nombre: string
+          salario_promedio?: string | null
+        }
+        Update: {
+          area?: string | null
+          created_at?: string
+          demanda_laboral?: string | null
+          descripcion?: string | null
+          duracion?: string | null
+          habilidades?: string[] | null
+          id?: string
+          nombre?: string
+          salario_promedio?: string | null
+        }
+        Relationships: []
+      }
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      favorites: {
+        Row: {
+          career_id: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          career_id: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          career_id?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "favorites_career_id_fkey"
+            columns: ["career_id"]
+            isOneToOne: false
+            referencedRelation: "careers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      mascots: {
+        Row: {
+          accesorios: string[] | null
+          color: string
+          estado: string
+          monedas: number
+          nivel: number
+          updated_at: string
+          user_id: string
+          xp: number
+        }
+        Insert: {
+          accesorios?: string[] | null
+          color?: string
+          estado?: string
+          monedas?: number
+          nivel?: number
+          updated_at?: string
+          user_id: string
+          xp?: number
+        }
+        Update: {
+          accesorios?: string[] | null
+          color?: string
+          estado?: string
+          monedas?: number
+          nivel?: number
+          updated_at?: string
+          user_id?: string
+          xp?: number
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          edad: number | null
+          email: string | null
+          id: string
+          nombre: string | null
+          pais: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          edad?: number | null
+          email?: string | null
+          id: string
+          nombre?: string | null
+          pais?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          edad?: number | null
+          email?: string | null
+          id?: string
+          nombre?: string | null
+          pais?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      universities: {
+        Row: {
+          carreras: string[] | null
+          costo: string | null
+          created_at: string
+          id: string
+          modalidad: string | null
+          nombre: string
+          pais: string | null
+          ubicacion: string | null
+        }
+        Insert: {
+          carreras?: string[] | null
+          costo?: string | null
+          created_at?: string
+          id?: string
+          modalidad?: string | null
+          nombre: string
+          pais?: string | null
+          ubicacion?: string | null
+        }
+        Update: {
+          carreras?: string[] | null
+          costo?: string | null
+          created_at?: string
+          id?: string
+          modalidad?: string | null
+          nombre?: string
+          pais?: string | null
+          ubicacion?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      vocational_profiles: {
+        Row: {
+          carreras_sugeridas: string[] | null
+          fortalezas: string[] | null
+          habilidades: string[] | null
+          intereses: string[] | null
+          materias_favoritas: string[] | null
+          nivel_certeza: number
+          objetivos: string | null
+          onboarding_completo: boolean
+          personalidad: string | null
+          resultados_ia: Json | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          carreras_sugeridas?: string[] | null
+          fortalezas?: string[] | null
+          habilidades?: string[] | null
+          intereses?: string[] | null
+          materias_favoritas?: string[] | null
+          nivel_certeza?: number
+          objetivos?: string | null
+          onboarding_completo?: boolean
+          personalidad?: string | null
+          resultados_ia?: Json | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          carreras_sugeridas?: string[] | null
+          fortalezas?: string[] | null
+          habilidades?: string[] | null
+          intereses?: string[] | null
+          materias_favoritas?: string[] | null
+          nivel_certeza?: number
+          objetivos?: string | null
+          onboarding_completo?: boolean
+          personalidad?: string | null
+          resultados_ia?: Json | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "estudiante"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +403,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "estudiante"],
+    },
   },
 } as const
