@@ -30,7 +30,7 @@ function Landing() {
       {/* Header */}
       <header className="border-b bg-card/80 backdrop-blur sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-          <Logo size={34} />
+          <Logo height={48} />
           <div className="flex gap-2">
             <Link to="/auth">
               <Button variant="ghost">Iniciar sesión</Button>

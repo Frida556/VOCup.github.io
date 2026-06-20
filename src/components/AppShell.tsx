@@ -48,9 +48,8 @@ export function AppShell({ children, isAdmin }: { children: ReactNode; isAdmin?:
           open ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div className="px-5 py-5 border-b">
-          <Logo size={32} />
-          <div className="text-[11px] text-muted-foreground mt-1 ml-1">Encuentra tu vocación</div>
+        <div className="px-4 py-4 border-b flex items-center justify-center">
+          <Logo height={56} />
         </div>
         <nav className="p-3 space-y-1">
           {items.map((item) => {
@@ -90,7 +89,7 @@ export function AppShell({ children, isAdmin }: { children: ReactNode; isAdmin?:
           <button onClick={() => setOpen(true)} className="p-2 rounded-md hover:bg-muted" aria-label="Abrir menú">
             <Menu className="h-5 w-5" />
           </button>
-          <Logo size={26} />
+          <Logo height={36} />
           <div className="w-9" />
         </header>
         <main className="flex-1 p-5 md:p-8 max-w-6xl w-full mx-auto">{children}</main>
