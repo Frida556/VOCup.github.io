@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { VocMascot } from "@/components/VocMascot";
+import { Logo } from "@/components/Logo";
 import {
   Sparkles,
   Compass,
@@ -29,12 +30,7 @@ function Landing() {
       {/* Header */}
       <header className="border-b bg-card/80 backdrop-blur sticky top-0 z-30">
         <div className="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <VocMascot size={36} floating={false} />
-            <span className="font-bold text-xl text-deep">
-              Voc<span className="text-primary">Up</span>
-            </span>
-          </div>
+          <Logo size={34} />
           <div className="flex gap-2">
             <Link to="/auth">
               <Button variant="ghost">Iniciar sesión</Button>
