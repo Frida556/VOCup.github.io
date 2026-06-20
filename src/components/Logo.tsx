@@ -1,21 +1,31 @@
 import { cn } from "@/lib/utils";
-import logoAsset from "@/assets/vocup-logo.png.asset.json";
+import iconAsset from "@/assets/vocup-icon.png.asset.json";
 
-export function Logo({ size = 32, withWordmark = true, className }: { size?: number; withWordmark?: boolean; className?: string }) {
+export function Logo({
+  size = 32,
+  withWordmark = true,
+  className,
+  variant = "deep",
+}: {
+  size?: number;
+  withWordmark?: boolean;
+  className?: string;
+  variant?: "deep" | "light";
+}) {
+  const word = variant === "light" ? "text-white" : "text-deep";
+  const accent = variant === "light" ? "text-sky" : "text-primary";
   return (
     <div className={cn("inline-flex items-center gap-2", className)}>
       <img
-        src={logoAsset.url}
+        src={iconAsset.url}
         alt="VocUp"
-        width={size * 1.6}
-        height={size}
         loading="eager"
         className="object-contain"
-        style={{ height: size, width: "auto" }}
+        style={{ height: size, width: size }}
       />
       {withWordmark && (
-        <span className="font-bold tracking-tight text-deep" style={{ fontSize: size * 0.55 }}>
-          voc<span className="text-primary">UP</span>
+        <span className={cn("font-extrabold tracking-tight leading-none", word)} style={{ fontSize: size * 0.62 }}>
+          voc<span className={accent}>UP</span>
         </span>
       )}
     </div>
