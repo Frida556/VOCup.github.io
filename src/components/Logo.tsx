@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import iconAsset from "@/assets/vocup-icon.png.asset.json";
+import iconAsset from "@/assets/vocup-logo.png.asset.json";
 
 export function Logo({
   size = 32,
