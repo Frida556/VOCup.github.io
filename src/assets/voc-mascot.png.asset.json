@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "6e85efe0-5edb-43ca-bcd8-ce4ce08e342c",
+  "asset_id": "80bf604a-72d0-45b3-81dd-1fcae46ff52f",
   "project_id": "63877c2a-255b-46a2-b936-3ced1acdfab0",
-  "url": "/__l5e/assets-v1/6e85efe0-5edb-43ca-bcd8-ce4ce08e342c/voc-mascot.png",
-  "r2_key": "a/v1/63877c2a-255b-46a2-b936-3ced1acdfab0/6e85efe0-5edb-43ca-bcd8-ce4ce08e342c/voc-mascot.png",
-  "original_filename": "voc-mascot.png",
-  "size": 488631,
+  "url": "/__l5e/assets-v1/80bf604a-72d0-45b3-81dd-1fcae46ff52f/voc-hero.png",
+  "r2_key": "a/v1/63877c2a-255b-46a2-b936-3ced1acdfab0/80bf604a-72d0-45b3-81dd-1fcae46ff52f/voc-hero.png",
+  "original_filename": "voc-hero.png",
+  "size": 190946,
   "content_type": "image/png",
-  "created_at": "2026-06-20T23:17:13Z"
+  "created_at": "2026-06-20T23:20:27Z"
 }
