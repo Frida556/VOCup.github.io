@@ -65,7 +65,7 @@ function Landing() {
                 </Button>
               </Link>
               <Link to="/auth">
-                <Button size="lg" variant="outline" className="border-white/40 text-primary-foreground hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-2 border-white bg-white/10 text-white font-semibold hover:bg-white hover:text-primary">
                   Ya tengo cuenta
                 </Button>
               </Link>
