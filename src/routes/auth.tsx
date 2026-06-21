@@ -106,7 +106,8 @@ function AuthPage() {
           <p className="text-sm text-center mt-6 text-muted-foreground">
             {mode === "signup" ? "¿Ya tienes cuenta?" : "¿No tienes cuenta?"}{" "}
             <button
-              className="text-primary font-medium hover:underline"
+              type="button"
+              className="text-deep font-semibold underline underline-offset-2 hover:text-sky transition-colors"
               onClick={() => setMode(mode === "signup" ? "login" : "signup")}
             >
               {mode === "signup" ? "Inicia sesión" : "Regístrate"}
