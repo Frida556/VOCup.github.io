@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VocUp — Encuentra tu vocación</title>
+<meta name="description" content="Plataforma de orientación vocacional con IA. Descubre la carrera ideal para ti con Voc, tu compañero inteligente." />
+<style>
+  :root {
+    --primary: #1e3a8a;
+    --primary-foreground: #ffffff;
+    --sky: #38bdf8;
+    --deep: #0f172a;
+    --muted: #64748b;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --border: #e2e8f0;
+    --hero: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 60%, #38bdf8 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--deep); line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  header { background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 30; }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
+  .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+  .logo span { color: var(--sky); }
+  .nav-buttons { display: flex; gap: 0.5rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.2rem; border-radius: 0.6rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; }
+  .btn-ghost { background: transparent; color: var(--deep); }
+  .btn-ghost:hover { background: #f1f5f9; }
+  .btn-primary { background: var(--primary); color: white; }
+  .btn-primary:hover { background: #1e40af; }
+  .btn-white { background: white; color: var(--primary); }
+  .btn-white:hover { background: #f1f5f9; }
+  .btn-outline-white { background: rgba(255,255,255,0.1); color: white; border: 2px solid white; font-weight: 700; }
+  .btn-outline-white:hover { background: white; color: var(--primary); }
+  .btn-lg { padding: 0.85rem 1.6rem; font-size: 1rem; }
+  .hero { position: relative; overflow: hidden; background: var(--hero); color: white; padding: 5rem 0 6rem; }
+  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
+  @media (min-width: 768px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
+  .badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.85rem; border-radius: 999px; background: rgba(255,255,255,0.15); font-size: 0.8rem; font-weight: 500; }
+  h1 { font-size: clamp(2.2rem, 5vw, 3.75rem); font-weight: 800; line-height: 1.05; margin: 1.25rem 0; }
+  h1 .accent { color: var(--sky); }
+  .hero p { font-size: 1.125rem; color: rgba(255,255,255,0.9); max-width: 32rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .mascot { width: 280px; height: 280px; margin: 0 auto; background: radial-gradient(circle, #fbbf24 0%, #f59e0b 70%); border-radius: 50%; display: grid; place-items: center; font-size: 6rem; box-shadow: 0 0 80px rgba(56,189,248,0.5); }
+  section.features { padding: 5rem 0; }
+  .section-head { text-align: center; max-width: 36rem; margin: 0 auto 3rem; }
+  .section-head h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--deep); }
+  .section-head p { color: var(--muted); margin-top: 0.75rem; }
+  .grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 960px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(15,23,42,0.04); }
+  .card-icon { width: 2.75rem; height: 2.75rem; border-radius: 0.75rem; background: var(--primary); color: white; display: grid; place-items: center; font-size: 1.25rem; }
+  .card h3 { margin-top: 1rem; font-size: 1.125rem; color: var(--deep); }
+  .card p { color: var(--muted); margin-top: 0.35rem; font-size: 0.95rem; }
+  .cta { margin: 0 auto 5rem; max-width: 1100px; padding: 0 1.25rem; }
+  .cta-inner { background: var(--hero); color: white; border-radius: 1.5rem; padding: 3.5rem 2rem; text-align: center; }
+  .cta-inner h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 800; }
+  .cta-inner p { margin: 0.75rem auto 0; max-width: 36rem; color: rgba(255,255,255,0.9); }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem; text-align: center; color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="logo">Voc<span>Up</span></div>
+    <div class="nav-buttons">
+      <a href="#" class="btn btn-ghost">Iniciar sesión</a>
+      <a href="#cta" class="btn btn-primary">Empezar ahora</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">✨ Tu futuro empieza aquí</span>
+      <h1>Encuentra <span class="accent">tu vocación</span> con la ayuda de Voc.</h1>
+      <p>Una plataforma con IA que te escucha, te guía y te ayuda a descubrir qué carrera profesional encaja contigo.</p>
+      <div class="hero-actions">
+        <a href="#cta" class="btn btn-lg btn-white">Empezar ahora →</a>
+        <a href="#" class="btn btn-lg btn-outline-white">Ya tengo cuenta</a>
+      </div>
+    </div>
+    <div><div class="mascot">🤖</div></div>
+  </div>
+</section>
+
+<section class="features container">
+  <div class="section-head">
+    <h2>¿Cómo te acompaña Voc?</h2>
+    <p>Una experiencia gamificada que evoluciona contigo en cada paso de tu camino vocacional.</p>
+  </div>
+  <div class="grid">
+    <div class="card"><div class="card-icon">💬</div><h3>Chat con IA</h3><p>Conversa con Voc y descubre tus intereses reales.</p></div>
+    <div class="card"><div class="card-icon">🧭</div><h3>Perfil dinámico</h3><p>Tu perfil vocacional evoluciona con cada conversación.</p></div>
+    <div class="card"><div class="card-icon">🎓</div><h3>Carreras y universidades</h3><p>Recomendaciones personalizadas para ti.</p></div>
+    <div class="card"><div class="card-icon">❤️</div><h3>Favoritos</h3><p>Guarda las carreras que más te interesan.</p></div>
+    <div class="card"><div class="card-icon">🏆</div><h3>Gamificación</h3><p>Sube de nivel y desbloquea logros con tu mascota.</p></div>
+    <div class="card"><div class="card-icon">✨</div><h3>Sin presión</h3><p>Voc te escucha, te guía y celebra cada avance contigo.</p></div>
+  </div>
+</section>
+
+<section id="cta" class="cta">
+  <div class="cta-inner">
+    <h2>¡Tu futuro comienza hoy!</h2>
+    <p>Crea tu cuenta gratis, completa tu onboarding y empieza a conversar con Voc.</p>
+    <a href="#" class="btn btn-lg btn-white" style="margin-top:1.5rem;">Crear mi cuenta →</a>
+  </div>
+</section>
+
+<footer>© 2026 VocUp · Hecho con cariño para tu futuro.</footer>
+</body>
+</html>
